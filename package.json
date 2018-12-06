@@ -1,0 +1,14 @@
+{
+  "name": "frazerschocken",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.7",
+    "sass": "^1.15.1"
+  }
+}

@@ -1,0 +1,474 @@
+/**
+ * index.scss
+ Add any styles you want here!
+ */
+$contrast: #fff;
+$tempcover: #0000001a;
+$bg: #582882;
+// $tempcover: transparent;
+
+html, body {
+  height: 100%;
+  color: $contrast;
+}
+
+body {
+  background: $bg;
+  margin: 0;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.main-grid {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 4fr 1fr 6fr 4fr;
+  grid-template-rows: 5fr 1fr 10fr 1fr;
+  overflow: hidden;
+  
+  &--top-left {
+    grid-column: 1 / 3;
+    grid-row: 1 / 1;
+  }
+  
+  &--top-right {
+    grid-column: 3 / 5;
+    grid-row: 1 / 3;
+    display: grid;
+    grid-template-columns: 4em 10vw auto 0.5em;
+    grid-template-rows: 1fr 1fr 2fr minmax(10vw, 4fr);
+    grid-gap: 0.3em;
+    position: relative;
+    overflow: hidden;
+    
+    .right-col {
+      grid-column: 4;
+      background: $contrast;
+      grid-row: 1/5;
+    }
+    
+    .icon-airplane {
+      grid-column: 2/4;
+      grid-row: 2/2;
+      width: 0.5em;
+    }
+    
+    .icon-book {
+      grid-column: 1/1;
+      grid-row: 4/4;
+      height: 42%;
+      width: 100%;
+      position: absolute;
+      bottom: 25px;
+    }
+    
+    .icon-row {
+      grid-column: 2/4;
+      margin: 0.3em 0;
+      overflow: hidden;
+      height: 1em;
+      &:before {
+       content: '\e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e902  \e932  \e902  \e932  \e902  \e932  \e902  \e932  \e902  \e932  \e902  \e932  \e902  \e932  \e902  \e932  \e902  \e932  \e902  \e932  \e902  \e932  \e902  \e932  \e902  \e932  \e902  \e932';
+      font-family: 'icomoon' !important; 
+      }
+    }
+    
+    .social-box {
+      grid-column: 3/4;
+      grid-row: 2;
+      text-align: right;
+      
+      div {
+        display: inline-block;
+        border-radius: 100%;
+        background: $contrast;
+        width: 8vh;
+        height: 8vh;
+        margin: 0 0.5vh;
+        
+        svg {
+          fill: $bg;
+          width: 80%;
+          height: 80%;
+          margin: 10%;
+        }
+      }
+    }
+    
+    .box-row {
+      grid-column: 3;
+      grid-row: 4;
+      margin-top: calc(10vh + 20px);
+      
+      div {
+        height: 6vh;
+        width: 6vh;
+        background: $contrast;
+        display: inline-block;
+        margin: 0 2px;
+      }
+    }
+    
+    .badge {
+      grid-column: 3;
+      grid-row: 4;
+      background: $contrast;
+      width: 10vh;
+      height: 10vh;
+      border-radius: 100%;
+      position: relative;
+      
+      .icon-trophy {
+        width: 70%;
+        height: 70%;
+        margin: 15%;
+        position: absolute;
+        fill: $bg;
+      }
+      
+      .icon-star-full {
+        width: 50%;
+        height: 30%;
+        margin: 25%;
+        z-index:2;
+        position: absolute;
+        fill: $contrast;
+      }
+    }
+    
+    .square-grid {
+      grid-column: 2;
+      grid-row: 4;
+      display: grid;
+      grid-template-rows: repeat(9, 1fr);
+      grid-template-columns: repeat(9, 1fr);
+      
+      span:nth-child(2n - 1) {
+        background: $contrast;
+        margin: 15%;
+      }
+    }
+  }
+  
+  &--top-left {
+    grid-column: 1 / 3;
+    grid-row: 1 / 1;
+    display: grid;
+    grid-template-rows: 3fr 4fr 1fr 1em;
+
+    .main-icon {
+      background: $contrast;
+      width: 3em;
+      height: 3em;
+      margin: 1vh;
+      border-radius: 100%;
+      display: inline-block;
+      
+      svg.icon {
+        fill: $bg;
+        width: 70%;
+        height: 70%;
+        margin: 15% auto;
+        display: block;
+      }
+    }
+    
+    .row-1 {
+      grid-row: 1 / 1;      
+    }
+    
+    .other {
+      display: inline-block;
+      width: 15%;
+      height: 8vh;
+      
+      .icon {
+        height: 100%;
+        width: 100%;
+      }
+    }
+    
+    .box-row {
+      svg.icon {
+        height: 10vh;
+        width: 18%;
+      }
+      
+      div {
+        background: $contrast;
+        height: 4vh;
+        width: 10%;
+        display: inline-block;
+      }
+    }
+    
+    .text-row {
+      grid-row: 4 / 4;      
+    }
+  }
+  
+  &--middle-left {
+    grid-column: 1 / 1;
+    grid-row: 2 / 4;
+    display: grid;
+    grid-template-rows: 1fr 3fr 5fr;
+    grid-gap: 1%;
+    margin-top: 1%;
+    
+    .shin-shine {
+      background: $contrast;
+      width: 25%;
+    }
+    
+    .big-b {
+      background: $contrast;
+      display: inline-block;
+      width: 40%;
+      height: 100%;
+    }
+    
+    .small-b {
+      background: $contrast;
+      display: inline-block;
+      width: 30%;
+    }
+    
+    .relative {
+      position: relative;
+    }
+    
+    .den {
+      width: 80%;
+      height: 100%;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 2fr 6fr 1em 8fr;
+      grid-gap: 2%;
+      position: absolute;
+      
+      .white {
+        background: $contrast;
+      }
+      
+      .span {
+        grid-row: 1/3;
+      }
+      
+      .out {
+        grid-column: 3;
+      }
+      
+      .flows {
+        grid-row: 1/3;
+        grid-column: 4;
+        position: relative;
+      }
+      
+      .aflow {
+        width: 1em;
+        background: $contrast;
+        height: 65%;
+      }
+      
+      .bflow {
+        background: $contrast;
+        position: absolute;
+        bottom: 0;
+        width: 50%;
+        height: 30%;
+      }
+    }
+    
+    .hang {
+      width: 30%;
+      height: 40%;
+      display: inline-block;
+      float: right;
+      margin-top: -8%;
+    }
+    
+    .hang-above {
+      background: $contrast;
+      width: 100%;
+      height: 60%;
+    }
+    
+    .hang-below {
+      background: $contrast;
+      height: 80%;
+      width: 60%;
+      float: right;
+      margin-top: 5%;
+    }
+  }
+  
+  &--middle {
+    position: relative;
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
+    color: $contrast;
+    
+    p {
+      margin: 0 0 0 0.8em;
+    }
+    
+    .main-1, .main-2 {
+      font-size: 5vh;
+      margin-left: 0.4em;
+    }
+    
+    .main-1 {
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .main-num {
+      font-size: 50vh;
+      line-height: 0.65;
+      margin: 0.1em 0 0;
+    }
+    
+    .dots {
+      position: absolute;
+      right: 16vw;
+      transform: rotate(-90deg);
+      bottom: 0;
+      width: 30px;
+
+      &:before {
+        content:'•••';
+        animation: dots 4s infinite alternate;
+        font-size: 2em;
+        font-family: sans-serif;
+        letter-spacing: 0.3em;
+      }
+    }
+    
+    @keyframes dots {
+      0% {
+        content: '••';
+      }
+      70% {
+        content: '•••';
+      }
+      100% {
+        content: '••••';
+      }
+    }
+    
+    .rocket-holder {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 5vw;
+      margin-right: 0.5em;
+      
+      .icon {
+        display: block;
+        height: 7vh;
+        width: 100%;
+        margin: 0.5em 0;
+      }
+    }
+  }
+  
+  &--middle-right {
+    grid-column: 4 / 5;
+    grid-row: 3 / 5;
+    display: grid;
+    grid-template-columns: 1em 12vh 1em 1fr 18vh;
+    grid-template-rows: 1fr 12vh 2fr 18vh 13fr 8fr;
+    
+    .horn {
+      grid-column: 2 / 2;
+      grid-row: 2 / 2;
+      width: 100%;
+      height: 100%;
+      border: 4px $contrast solid;
+      box-sizing: border-box;
+      padding: 10%;
+      
+      svg {
+        width: 100%;
+        height: 100%;
+        fill: $contrast;
+      }
+    }
+    
+    .label-1 {
+      grid-column: 4 / 6;
+      grid-row: 2 / 2;
+      margin: 0;
+      font-size: 0.6em;
+    }
+    
+    .label-2 {
+      grid-column: 2 / 6;
+      grid-row: 3 / 3;
+      margin: 0;
+      font-size: 1em;
+    }
+    
+    .radar {
+      grid-column: 2 / 3;
+      grid-row: 4 / 4;
+      position: relative;
+
+      svg {
+        fill: $contrast;
+        width: 45%;
+        height: 30%;
+        position: absolute;
+        top: 0;
+        border: 3px $contrast solid;
+        border-radius: 100%;
+        padding: 5%;
+      }
+    }
+    
+    .qrcode {
+      grid-column: 5 / 5;
+      grid-row: 4 / 4;
+      max-width: 100%;
+    }
+    
+    .label-3 {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      grid-column: 1 / 1;
+      grid-row: 2/ 7;
+    }
+    
+    .units {
+      grid-column: 2 / 6;
+      grid-row: 6/ 7;
+      
+      svg {
+        width: 19%;
+        height: 12vh;
+        margin: 0 2%;
+        fill: $contrast;
+      }
+    }
+  }
+  
+  &--footer {
+    grid-column: 1 / 4;
+    grid-row: 4 / 5;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1em;
+    
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
