@@ -1,11 +1,8 @@
-/**
- * index.scss
- Add any styles you want here!
- */
+:root {
+  --bg: #000;
+}
+
 $contrast: #fff;
-$tempcover: #0000001a;
-$bg: #582882;
-// $tempcover: transparent;
 
 html, body {
   height: 100%;
@@ -13,9 +10,13 @@ html, body {
 }
 
 body {
-  background: $bg;
+  background: var(--bg);
   margin: 0;
   font-family: 'Rajdhani', sans-serif;
+}
+
+a {
+    color: currentColor;
 }
 
 .main-grid {
@@ -86,7 +87,7 @@ body {
         margin: 0 0.5vh;
         
         svg {
-          fill: $bg;
+          fill: var(--bg);
           width: 80%;
           height: 80%;
           margin: 10%;
@@ -122,7 +123,7 @@ body {
         height: 70%;
         margin: 15%;
         position: absolute;
-        fill: $bg;
+        fill: var(--bg);
       }
       
       .icon-star-full {
@@ -155,16 +156,21 @@ body {
     display: grid;
     grid-template-rows: 3fr 4fr 1fr 1em;
 
-    .main-icon {
+    .colour-pick {
       background: $contrast;
       width: 3em;
       height: 3em;
       margin: 1vh;
       border-radius: 100%;
       display: inline-block;
+
+      &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+      }
       
       svg.icon {
-        fill: $bg;
+        fill: var(--bg);
         width: 70%;
         height: 70%;
         margin: 15% auto;
