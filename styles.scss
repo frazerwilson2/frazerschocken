@@ -112,11 +112,16 @@ a {
     .badge {
       grid-column: 3;
       grid-row: 4;
-      background: $contrast;
+      background-color: $contrast;
       width: 10vh;
       height: 10vh;
       border-radius: 100%;
       position: relative;
+      transition: background-color 0.5s;
+
+      &.glow {
+        background-color: yellow;
+      }
       
       .icon-trophy {
         width: 70%;
@@ -133,6 +138,17 @@ a {
         z-index:2;
         position: absolute;
         fill: $contrast;
+      }
+
+      .score-holder {
+        display: block;
+        text-align: center;
+        color: var(--bg);
+        font-weight: bold;
+        font-size: 0.8em;
+        position: relative;
+        margin-top: 23px;
+        z-index: 2;
       }
     }
     
@@ -316,6 +332,34 @@ a {
     p {
       margin: 0 0 0 0.8em;
     }
+
+    .quiz-answers {
+      opacity: 0;
+      transition: opacity 0.5s;
+
+      &.show {
+        opacity: 1;
+      }
+    }
+
+    .quiz-answer {
+      font-family: 'Rajdhani', sans-serif;
+      background: transparent;
+      color: white;
+      border: none;
+      text-decoration: underline;
+      font-size: 1em;
+      padding: 0;
+      margin-right: 8px;
+
+      &.correct {
+        color: #8fef8f;
+      }
+
+      &.incorrect {
+        opacity: 0.5;
+      }
+    }
     
     .main-1, .main-2 {
       font-size: 5vh;
@@ -453,6 +497,12 @@ a {
         height: 12vh;
         margin: 0 2%;
         fill: $contrast;
+        opacity: 1;
+        transition: opacity 0.5s;
+
+        &.fade-out {
+          opacity: 0;
+        }
       }
     }
   }
@@ -477,4 +527,35 @@ a {
   stroke-width: 0;
   stroke: currentColor;
   fill: currentColor;
+}
+
+
+@media (max-width: 820px) {
+  .main-grid--middle .dots, .main-grid--top-left .text-row {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .main-grid--middle-right .label-3, .main-grid--middle-left .den .white, .main-grid--footer {
+    display: none;
+  }
+
+  .main-grid--middle .main-num {
+    font-size: 40vh;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .main-grid--middle {
+    grid-column: 3/4;
+    grid-row: 3/4;
+  }
+  .main-grid--top-right {
+    grid-column: 1/4;
+    grid-row: 1/1;
+    display: grid;
+    grid-template-columns: 5em 21vw auto 0.5em;
+    grid-template-rows: 1fr 1fr 2fr minmax(10vw, 18fr);
+  }
 }

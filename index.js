@@ -9,6 +9,23 @@ const click = (el, func)=>{
 	q(el).addEventListener('click', func);
 }
 
+let userScore = 0;
+let fails = 0;
+
+const updateScore = amount =>{
+	const newAmount = userScore += amount;
+	q('#badge').classList.add('glow');
+	q('#scoreHolder').innerHTML = newAmount;
+	setTimeout(()=>{
+		q('#badge').classList.remove('glow');
+	}, 500);
+};
+
+const fail = ()=>{
+	fails++;
+	q(`#fails svg:nth-child(${fails})`).classList.add('fade-out');	
+}
+
 const colors = ['#63560d', '#963511', '#821730', '#291256', '#123554', '#223a29', '#4e1358'];
 let currentColour = null;
 let correctIndex = null;
@@ -33,6 +50,29 @@ const typeWriter = () =>{
     i++;
     setTimeout(typeWriter, 50);
   }
+  else {
+	showAnswers();
+  }
+}
+
+let qAnswrs = null;
+const showAnswers = ()=>{
+	populateAnswers();
+}
+
+const populateAnswers = ()=>{
+	qAnswrs.forEach((a, i) =>{
+		if(a.correct){
+			correctIndex = i;
+		}
+		const ans = document.createElement('button');
+		ans.innerText = a.text;
+		ans.dataset.id = i;
+		ans.classList.add('quiz-answer');
+		ans.addEventListener('click', checkAnswer);
+		q('#quizA').appendChild(ans);
+		q('#quizA').classList.add('show');
+	});
 }
 
 const shuffle = array => {
@@ -55,11 +95,21 @@ const shuffle = array => {
 
 const checkAnswer = e =>{
 	if(e.target.dataset.id == correctIndex){
-		alert('correct');
+		updateScore(5);
 	}
 	else {
-		alert('wrong');
+		fail();
 	}
+	const answers = document.querySelectorAll('#quizA button');
+	answers.forEach(ans =>{
+		ans.removeEventListener('click', checkAnswer);
+		if(ans.dataset.id == correctIndex){
+			ans.classList.add('correct');
+		}
+		else {
+			ans.classList.add('incorrect');
+		}
+	})
 }
 
 const askQ = ()=>{
@@ -69,8 +119,7 @@ const askQ = ()=>{
 	})
 	.then(res => {
 		const questionDetails = res.results[0];
-		console.log(questionDetails);
-		txt = questionDetails.question.replace(/&quot;/g, '"').replace('&#039;', '\'');
+		txt = questionDetails.question.replace(/&quot;/g, '"').replace(/&#039;/g, '\'');
 		typeWriter();
 
 		let answers = [];
@@ -79,17 +128,7 @@ const askQ = ()=>{
 			answers.push({text: a, correct: false});
 		});
 		const shuffledAnswers = shuffle(answers);
-		console.log(shuffledAnswers);
-		shuffledAnswers.forEach((a, i) =>{
-			if(a.correct){
-				correctIndex = i;
-			}
-			const ans = document.createElement('button');
-			ans.innerText = a.text;
-			ans.dataset.id = i;
-			ans.addEventListener('click', checkAnswer);
-			q('#quizA').appendChild(ans);
-		});
+		qAnswrs = shuffledAnswers;
 	});
 }
 

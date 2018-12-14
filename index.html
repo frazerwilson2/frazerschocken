@@ -4,8 +4,8 @@
   
   <!--  Meta  -->
   <meta charset="UTF-8" />
-  <title>My New Pen!</title>
-  
+  <title>FrazerSchocken</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--  Styles  -->
   <link href="https://fonts.googleapis.com/css?family=Rajdhani:400,600" rel="stylesheet">
 <!-- <script defer src="svgxuse.js"></script> -->
@@ -110,9 +110,10 @@
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
       
-      <div class="badge">
+      <div class="badge" id="badge">
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="icon icon-trophy"><use xlink:href="#icon-trophy"></use></svg>
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="icon icon-star-full"><use xlink:href="#icon-star-full"></use></svg>
+        <span id="scoreHolder" class="score-holder"></span>
       </div>
       
       <div class="box-row">
@@ -159,7 +160,7 @@
 
     <div class="main-grid--middle">
       <p id="quizQ"></p>
-      <p id="quizA"></p>
+      <p id="quizA" class="quiz-answers"></p>
       <div class="main-1">F.Wilson</div>
       <div class="main-2">02.09.18</div>
       <div class="main-num">18</div>  
@@ -182,7 +183,7 @@
       <div class="radar"><svg xmlns:xlink="http://www.w3.org/1999/xlink" class="icon icon-radar"><use xlink:href="#icon-radar"></use></svg></div>
       <img class="qrcode" src="qr-hey.svg" />
       
-      <div class="units">
+      <div id="fails" class="units">
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="icon icon-gift"><use xlink:href="#icon-gift"></use></svg>
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="icon icon-gift"><use xlink:href="#icon-gift"></use></svg>
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" class="icon icon-gift"><use xlink:href="#icon-gift"></use></svg>
